@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Header>
+    <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+      <wsse:UsernameToken>
+        <wsse:Username>{{MerchantID}}</wsse:Username>
+        <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">{{TransactionSecurityKey}}</wsse:Password>
+      </wsse:UsernameToken>
+    </wsse:Security>
+  </soapenv:Header>
+  <soapenv:Body>
+    <requestMessage xmlns="urn:schemas-cybersource-com:transaction-data-{{Version}}">
+       <merchantID>{{MerchantID}}</merchantID>
+      <merchantReferenceCode>{{$timestamp}}</merchantReferenceCode>
+            <userPO>03041972</userPO>
+         </invoiceHeader>
+         <shipTo>
+            <postalCode>02188</postalCode>
+         </shipTo>
+         <shipFrom>
+            <postalCode>94404</postalCode>
+         </shipFrom>
+         <item id="0">
+            <unitPrice>15.00</unitPrice>
+            <quantity>1</quantity>
+            <productCode>22L-1-602</productCode>
+            <productName>Product_Item_Name</productName>
+            <productSKU>1234</productSKU>
+            <taxAmount>0.00</taxAmount>
+            <unitOfMeasure>EAC</unitOfMeasure>
+            <commodityCode>26101115</commodityCode>
+            <invoiceNumber>200409</invoiceNumber>
+         </item>
+         <purchaseTotals>
+            <currency>USD</currency>
+            <discountAmount>0.00</discountAmount>
+            <dutyAmount>0.00</dutyAmount>
+            <grandTotalAmount>15.00</grandTotalAmount>
+            <freightAmount>0.00</freightAmount>
+         </purchaseTotals>
+         <ccCaptureService run="true">
+            <authRequestID>{{ReqID}}</authRequestID>
+            <purchasingLevel>3</purchasingLevel>
+         </ccCaptureService>
+      </requestMessage>
+  </soapenv:Body>
+</soapenv:Envelope>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Header>
+    <wsse:Security soapenv:mustUnderstand="1" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+      <wsse:UsernameToken>
+        <wsse:Username>{{MerchantID}}</wsse:Username>
+        <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">{{TransactionSecurityKey}}</wsse:Password>
+      </wsse:UsernameToken>
+    </wsse:Security>
+  </soapenv:Header>
+  <soapenv:Body>
+    <requestMessage xmlns="urn:schemas-cybersource-com:transaction-data-{{Version}}">
+       <merchantID>{{MerchantID}}</merchantID>
+      <merchantReferenceCode>{{$timestamp}}</merchantReferenceCode>
+		<billTo>
+          <firstName>Joe</firstName>
+          <lastName>Postman</lastName>
+          <street1>2705 South Price Road </street1>
+          <city>Chandler</city>
+          <state>AZ</state>
+          <postalCode>85204</postalCode>
+          <country>US</country>
+          <phoneNumber>480-887-5286</phoneNumber>
+          <email>jdoe@example.com</email>
+       </billTo>
+        <recurringSubscriptionInfo>
+          <subscriptionID>{{tokenID}}</subscriptionID>
+        </recurringSubscriptionInfo>
+	  <paySubscriptionUpdateService run="true"/>
+    </requestMessage>
+  </soapenv:Body>
+</soapenv:Envelope>
+
