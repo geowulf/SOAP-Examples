@@ -17,13 +17,13 @@
             <grandTotalAmount>3.00</grandTotalAmount>
          </purchaseTotals>
          <recurringSubscriptionInfo>
-            <subscriptionID>5555364114256582904012</subscriptionID>
+            <subscriptionID>{{subscriptionID}}</subscriptionID>
          </recurringSubscriptionInfo>
          <ccAuthService run="true">
             <commerceIndicator>recurring</commerceIndicator>
          </ccAuthService>
          <ccCaptureService run="true"/>
-         <subsequentAuthTransactionID>5555364114256582904012</subsequentAuthTransactionID>
+         <subsequentAuthTransactionID>{{subseqTransRequestID}}</subsequentAuthTransactionID>
       </requestMessage>
   </soapenv:Body>
 </soapenv:Envelope>
