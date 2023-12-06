@@ -42,6 +42,11 @@
 	      <currency>USD</currency>
 	      <grandTotalAmount>919.04</grandTotalAmount>
 	   </purchaseTotals>
+	   <merchantDefinedData>
+          	<mddField id="1">Custom1</mddField>
+		<!--  Enter many fields in numeric succession here /-->
+           	<mddField id="100">Custom100</mddField>
+	   </merchantDefinedData>
 	   <ccCaptureService run="true">
 	      <purchasingLevel>3</purchasingLevel>
 	   </ccCaptureService>
